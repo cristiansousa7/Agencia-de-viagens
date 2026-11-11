@@ -1,0 +1,105 @@
+/* Estilos gerais e largura compartilhada pelas seções. */
+:root {
+  --roxo: #5d15d1;
+  --roxo-escuro: #46109d;
+  --fundo: #f5f4f8;
+  --texto: #292333;
+  --borda: #d7d2df;
+  --sombra: 0 8px 24px rgb(39 19 68 / 7%);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; line-height: 1.5; color: var(--texto); background: var(--fundo); }
+h1, h2, h3, p, figure { margin: 0; }
+img { display: block; max-width: 100%; }
+.limite { width: 90%; max-width: 1024px; margin-inline: auto; }
+
+.topo { background: #fff; }
+.marca { min-height: 72px; display: flex; align-items: center; gap: 10px; }
+.marca img { object-fit: contain; }
+.marca h1 { font-size: 24px; font-weight: 600; letter-spacing: -0.6px; color: var(--roxo); }
+
+/* Formulário: os controles usam a validação nativa do HTML. */
+.area-orcamento { padding: 48px 0; background: linear-gradient(rgb(29 15 48 / 12%), rgb(29 15 48 / 24%)), url("img/bahia.jpg") center / cover no-repeat; }
+.painel-orcamento { background: #fff; border-radius: 16px; box-shadow: 0 16px 48px rgb(25 13 45 / 20%); }
+.faixa-orcamento { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; padding: 10px; border-radius: 16px 16px 0 0; background: var(--roxo); color: #fff; font-size: 16px; font-weight: 600; }
+.faixa-orcamento img { object-fit: contain; transform: rotate(-45deg); }
+.formulario { padding: 28px 32px 32px; }
+.formulario h3 { margin-bottom: 24px; font-size: 24px; letter-spacing: -0.5px; }
+.campo { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; min-width: 0; }
+.campo label, legend { font-size: 14px; font-weight: 600; }
+.campo input, .campo select { width: 100%; min-width: 0; height: 44px; padding: 9px 12px; border: 1px solid var(--borda); border-radius: 8px; background: #fcfbfd; color: var(--texto); font: inherit; font-size: 14px; transition: border-color 160ms ease, box-shadow 160ms ease, background-color 160ms ease; }
+.campo input:hover, .campo select:hover { border-color: #a998bf; }
+.campo input:focus, .campo select:focus { border-color: var(--roxo); background: #fff; box-shadow: 0 0 0 3px rgb(93 21 209 / 10%); }
+.campo input::placeholder { color: #666; opacity: 1; }
+.duas-colunas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+fieldset { border: 0; padding: 0; margin: 0 0 18px; min-width: 0; }
+legend { padding: 0; margin-bottom: 10px; }
+.opcoes { display: flex; flex-wrap: wrap; gap: 12px 28px; }
+.opcoes label { display: flex; align-items: center; gap: 8px; min-height: 32px; min-width: 92px; font-size: 14px; cursor: pointer; }
+.opcoes input { margin: 0; width: 16px; height: 16px; accent-color: var(--roxo); }
+button { margin-top: 6px; min-height: 46px; border: 0; border-radius: 8px; padding: 11px 24px; background: var(--roxo); color: #fff; font: inherit; font-weight: 600; box-shadow: 0 4px 12px rgb(93 21 209 / 18%); cursor: pointer; transition: background-color 160ms ease, box-shadow 160ms ease; }
+button:hover { background: var(--roxo-escuro); box-shadow: 0 6px 18px rgb(93 21 209 / 25%); }
+button:active { box-shadow: none; }
+input:focus-visible, select:focus-visible, button:focus-visible, a:focus-visible { outline: 3px solid #aa76ff; outline-offset: 3px; }
+
+/* Ofertas: destaque à esquerda e quatro imagens à direita. */
+.conteudo { padding: 44px 0 48px; }
+.conteudo h2 { margin-bottom: 8px; font-size: 24px; letter-spacing: -0.5px; }
+.conteudo section > p { margin-bottom: 22px; color: #645c70; font-size: 16px; line-height: 1.5; }
+.ofertas strong { color: var(--roxo); }
+.galeria-ofertas { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: repeat(2, 180px); gap: 20px; grid-template-areas: "destaque manaus saopaulo" "destaque niteroi maranhao"; }
+.oferta { position: relative; min-width: 0; overflow: hidden; border-radius: 12px; box-shadow: var(--sombra); }
+.oferta-destaque { grid-area: destaque; }
+.oferta-manaus { grid-area: manaus; }
+.oferta-niteroi { grid-area: niteroi; }
+.oferta-saopaulo { grid-area: saopaulo; }
+.oferta-maranhao { grid-area: maranhao; }
+.oferta img { width: 100%; height: 100%; object-fit: cover; }
+.oferta figcaption { position: absolute; inset: auto 0 0; padding: 26px 14px 12px; color: #fff; background: linear-gradient(transparent, rgb(15 10 24 / 85%)); font-size: 15px; font-weight: 600; text-shadow: 0 1px 3px rgb(0 0 0 / 70%); }
+.natureza { margin-top: 40px; }
+.galeria-natureza { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.destino { overflow: hidden; border: 1px solid #e9e5ef; border-radius: 12px; background: #fff; box-shadow: var(--sombra); }
+.destino > img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.descricao-destino { padding: 22px 20px; }
+.descricao-destino h3 { margin-bottom: 10px; font-size: 17px; line-height: 1.4; }
+.descricao-destino p { color: var(--roxo-escuro); font-size: 14px; line-height: 1.5; }
+
+.rodape { padding: 32px 0; background: var(--roxo); color: #fff; }
+.rodape-conteudo { display: flex; justify-content: space-between; gap: 30px; }
+.rodape h2 { margin-bottom: 18px; font-size: 20px; }
+.rodape address { font-style: normal; }
+.rodape address p, .redes-sociais li { display: flex; align-items: center; gap: 10px; margin-top: 10px; font-size: 14px; line-height: 1.4; }
+.rodape img { flex-shrink: 0; object-fit: contain; }
+.rodape a { color: inherit; text-decoration: none; overflow-wrap: anywhere; }
+.rodape a:hover { text-decoration: underline; }
+.redes-sociais { list-style: none; margin: 0; padding: 0; }
+.creditos { margin-top: 28px; padding-top: 20px; border-top: 1px solid rgb(255 255 255 / 25%); text-align: center; font-size: 14px; font-weight: 600; }
+.creditos span { font-weight: 400; }
+
+/* Tablet: galerias empilhadas, botão amplo e rodapé centralizado. */
+@media (max-width: 768px) {
+  .formulario button { width: 100%; }
+  .galeria-ofertas { grid-template-columns: 1fr; grid-template-rows: none; grid-template-areas: "destaque" "manaus" "niteroi" "saopaulo" "maranhao"; gap: 16px; }
+  .oferta { height: 240px; }
+  .galeria-natureza { grid-template-columns: 1fr; gap: 20px; }
+  .rodape-conteudo { flex-direction: column; align-items: center; }
+  .rodape-conteudo > section { width: 280px; max-width: 100%; }
+}
+
+/* Celular: campos e opções em uma única coluna. */
+@media (max-width: 540px) {
+  .marca { min-height: 64px; }
+  .marca h1 { font-size: 20px; }
+  .area-orcamento { padding: 32px 0; }
+  .formulario { padding: 25px 20px 20px; }
+  .duas-colunas { grid-template-columns: 1fr; gap: 0; }
+  .opcoes { flex-direction: column; gap: 12px; }
+  .campo input, .campo select { font-size: 16px; }
+  .descricao-destino { padding: 20px 16px; }
+}
+
+/* Respeita a preferência de quem desativa animações no dispositivo. */
+@media (prefers-reduced-motion: reduce) {
+  .campo input, .campo select, button { transition: none; }
+}
